@@ -2,10 +2,10 @@
 String to Integer (atoi)
 Difficulty: Medium
 Language: JavaScript
-Runtime: 1 ms
-Memory: 55.4 MB
-Submitted: 2025-08-26T04:07:03.130Z
-Link: https://leetcode.com/problems/string-to-integer-atoi/submissions/1748492193/
+Runtime: 3 ms
+Memory: 57.9 MB
+Submitted: 2025-08-26T04:29:03.190Z
+Link: https://leetcode.com/problems/string-to-integer-atoi/submissions/1748514588/
 */
 
 /**
