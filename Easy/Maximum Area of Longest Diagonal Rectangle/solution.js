@@ -2,10 +2,10 @@
 Maximum Area of Longest Diagonal Rectangle
 Difficulty: Easy
 Language: JavaScript
-Runtime: 1 ms
-Memory: 57.4 MB
-Submitted: 2025-08-26T00:59:40.266Z
-Link: https://leetcode.com/problems/maximum-area-of-longest-diagonal-rectangle/submissions/1748363267/?envType=daily-question&envId=2025-08-26
+Runtime: 0 ms
+Memory: 55.5 MB
+Submitted: 2025-08-26T01:29:15.021Z
+Link: https://leetcode.com/problems/maximum-area-of-longest-diagonal-rectangle/submissions/1748379372/?envType=daily-question&envId=2025-08-26
 */
 
 /**
