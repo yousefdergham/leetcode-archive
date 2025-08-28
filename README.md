@@ -54,7 +54,7 @@ I developed **[LeetShip](https://github.com/yousefdergham/leetship)**, a sophist
 
 LeetShip maintains a clean, professional structure that enhances code organization and accessibility:
 
-```
+
 ## 🎯 Project Goals
 
 - **Archive Management** – Maintain a comprehensive, searchable archive of coding solutions
