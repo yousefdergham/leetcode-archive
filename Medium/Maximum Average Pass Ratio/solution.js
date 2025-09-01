@@ -2,10 +2,10 @@
 Maximum Average Pass Ratio
 Difficulty: Medium
 Language: JavaScript
-Runtime: 618 ms
-Memory: 98.6 MB
-Submitted: 2025-09-01T08:20:27.358Z
-Link: https://leetcode.com/problems/maximum-average-pass-ratio/submissions/1755601283/?envType=daily-question&envId=2025-09-01
+Runtime: 553 ms
+Memory: 91.5 MB
+Submitted: 2025-09-01T14:53:59.840Z
+Link: https://leetcode.com/problems/maximum-average-pass-ratio/submissions/1755954306/
 */
 
 /**
