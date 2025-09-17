@@ -1,0 +1,28 @@
+/*
+🔥 Code
+Difficulty: Easy
+Language: Unknown
+Runtime: N/A
+Memory: N/A
+Submitted: 2025-09-17T18:43:53.517Z
+Link: https://leetcode.com/problems/design-a-food-rating-system/?envType=daily-question&envId=2025-09-17
+*/
+
+class FoodRatings {
+    constructor(foods, cuisines, ratings) {
+        this.foodToCuisine = new Map();
+        this.foodToRating = new Map();
+        this.cuisineFoods = new Map();
+
+        for (let i = 0; i < foods.length; i++) {
+            this.foodToCuisine.set(foods[i], cuisines[i]);
+            this.foodToRating.set(foods[i], ratings[i]);
+        }
+…            let r1 = this.foodToRating.get(a);
+            let r2 = this.foodToRating.get(b);
+            if (r1 !== r2) return r2 - r1;
+            return a.localeCompare(b);
+        });
+        return foods[0];
+    }
+}
