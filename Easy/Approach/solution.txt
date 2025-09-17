@@ -1,0 +1,29 @@
+/*
+Approach
+Difficulty: Easy
+Language: Unknown
+Runtime: N/A
+Memory: N/A
+Submitted: 2025-09-17T18:44:22.886Z
+Link: https://leetcode.com/problems/design-a-food-rating-system/solutions/7198294/design-food-rating-system-lazy-deletion-max-heap-solution-100-beats/?envType=daily-question&envId=2025-09-17
+*/
+
+const list = this.cuisineToRatings.get(cuisine);
+        const oldRating = this.foodToRating.get(food);
+
+        // Remove old entry
+        const index = list.findIndex(entry => entry.food === food);
+        list.splice(index, 1);
+
+        // Insert new entry
+        list.push({ food, rating: newRating });
+        list.sort(this.comparator);
+
+        // Update map
+        this.foodToRating.set(food, newRating);
+    }
+
+    highestRated(cuisine) {
+        return this.cuisineToRatings.get(cuisine)[0].food;
+    }
+}
