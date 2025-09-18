@@ -2,68 +2,44 @@
 Design Task Manager
 Difficulty: Medium
 Language: JavaScript
-Runtime: N/A
-Memory: N/A
-Submitted: 2025-09-18T15:27:15.517Z
-Link: https://leetcode.com/problems/design-task-manager/submissions/1775119803/?envType=daily-question&envId=2025-09-18
+Runtime: 338 ms
+Memory: 120.8 MB
+Submitted: 2025-09-18T15:28:09.087Z
+Link: https://leetcode.com/problems/design-task-manager/submissions/1775121362/?envType=daily-question&envId=2025-09-18
 */
-
-class Manager {
-    constructor(userId, taskId, priority) {
-        this.userId = userId;
-        this.taskId = taskId;
-        this.priority = priority;
-    }
-}
 
 class TaskManager {
     constructor(tasks) {
-        this.record = new Map();
-        this.pq = [];
-
-        for (let t of tasks) {
-            let m = new Manager(t[0], t[1], t[2]);
-            this.pq.push(m);
-            this.record.set(m.taskId, m);
-        }
-        this._heapify();
-    }
-
-    _heapify() {
-        this.pq.sort((a, b) => {
-            if (a.priority === b.priority) return b.taskId - a.taskId;
-            return b.priority - a.priority;
-        });
+        this.heap = new PriorityQueue((a, b) => b[2] - a[2] || b[1] - a[1], tasks);
+        this.tasks = new Map(tasks.map(task => [task[1], task]));
     }
 
     add(userId, taskId, priority) {
-        let m = new Manager(userId, taskId, priority);
-        this.pq.push(m);
-        this.record.set(taskId, m);
-        this._heapify();
+        const task = [userId, taskId, priority];
+        this.heap.enqueue(task);
+        this.tasks.set(taskId, task);
     }
 
     edit(taskId, newPriority) {
-        let old = this.record.get(taskId);
-        let updated = new Manager(old.userId, taskId, newPriority);
-        this.pq.push(updated);
-        this.record.set(taskId, updated);
-        this._heapify();
+        const oldTask = this.tasks.get(taskId);
+        if (!oldTask) return;
+        const newTask = [oldTask[0], taskId, newPriority];
+        this.tasks.set(taskId, newTask);
+        this.heap.enqueue(newTask);
     }
 
     rmv(taskId) {
-        this.record.delete(taskId);
+        this.tasks.delete(taskId);
     }
 
     execTop() {
-        while (this.pq.length > 0) {
-            this._heapify();
-            let top = this.pq.shift();
-            let latest = this.record.get(top.taskId);
-            if (!latest) continue;
-            if (latest.priority !== top.priority) continue;
-            this.record.delete(top.taskId);
-            return top.userId;
+        while (!this.heap.isEmpty()) {
+            const task = this.heap.dequeue();
+            const cur = this.tasks.get(task[1]);
+            if (cur && cur[0] === task[0] && cur[2] === task[2]) {
+                this.rmv(task[1]);
+                return task[0];
+            }
         }
         return -1;
     }
